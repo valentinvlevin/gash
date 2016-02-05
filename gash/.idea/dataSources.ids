@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="PostgreSQL - gash_ocen_dev@192.168.57.129" uuid="e8807bd4-9772-4896-871f-5824ffe231ff">
+    <database-info product="PostgreSQL" version="9.3.9" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.3 JDBC4 (build 1102)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <schema name="public" catalog="gash_ocen_dev"/>
+    <table name="answer_files" schema="public" catalog="gash_ocen_dev" type="TABLE">
+      <column name="id_file" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnYW5zd2VyX2ZpbGVzX2lkX2ZpbGVfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="id_vpt" sqlType="int2" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="arm_sign" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="num" sqlType="int2" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="id_season" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="import_date_time" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="create_date_time" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="answer_file_name" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="result_file_name" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="data_hash" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="rand_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <index name="answer_files_pkey" unique="false" columns="id_vpt,arm_sign,num"/>
+    </table>
+    <table name="answer_files_id_file_seq" schema="public" catalog="gash_ocen_dev" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="info_self" schema="public" catalog="gash_ocen_dev" type="TABLE">
+      <column name="cur_id_season" sqlType="int2" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <primary-key name="info_self_pkey" columns="cur_id_season"/>
+    </table>
+    <table name="kpo" schema="public" catalog="gash_ocen_dev" type="TABLE">
+      <column name="id_season" sqlType="int2" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="variant" sqlType="int2" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="class_no" sqlType="int2" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="id_predmet" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="kods" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lang" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ord" sqlType="int2" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <primary-key name="kpo_pkey" columns="id_season,variant,class_no,ord"/>
+    </table>
+    <table name="listotv" schema="public" catalog="gash_ocen_dev" type="TABLE">
+      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnbGlzdG90dl9pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="id_file" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="class_no" sqlType="int2" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="id_listotv" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_test" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="liter_class" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_fam" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fam" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_init" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="init" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="kpo_id_season" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="s_variant" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="variant" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet4" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="i_answers1" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="i_answers2" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="i_answers3" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="i_answers4" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers1" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers2" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers3" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers4" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_edit" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="edit_result" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="is_iden" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball4" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="itog_ocen" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen4" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="is_ocen" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="date_time_scan" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="blank" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lang" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="lo_file_name" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ord1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5" def="MQ=="/>
+      <column name="ord2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5" def="Mg=="/>
+      <column name="ord3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5" def="Mw=="/>
+      <column name="ord4" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5" def="NA=="/>
+      <primary-key name="listotv_pkey" columns="id_file,class_no,id_listotv"/>
+    </table>
+    <table name="listotv_id_seq" schema="public" catalog="gash_ocen_dev" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="tests" schema="public" catalog="gash_ocen_dev" type="TABLE">
+      <column name="id_file" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_test" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="scan_date" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gid_uchzav" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_testtype" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <primary-key name="tests_pkey" columns="id_file,id_test"/>
+    </table>
+    <table name="uchzav" schema="public" catalog="gash_ocen_dev" type="TABLE">
+      <column name="id_file" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="gid_uchzav" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="uchzav_kaz" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uchzav_rus" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="uchzav_pkey" columns="id_file,gid_uchzav"/>
+    </table>
+    <table name="vw_listotv_11" schema="public" catalog="gash_ocen_dev" type="VIEW">
+      <column name="id_vpt" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="arm_sign" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_listotv" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_test" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gid_uchzav" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_testtype" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="liter_class" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_fam" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fam" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_init" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="init" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="kpo_id_season" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="s_variant" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="variant" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet4" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="i_answers1" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="i_answers2" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="i_answers3" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="i_answers4" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers1" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers2" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers3" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers4" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_edit" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="edit_result" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="is_iden" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball4" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="itog_ocen" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen4" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="is_ocen" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="date_time_scan" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="blank" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lang" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="lo_file_name" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="vw_listotv_4" schema="public" catalog="gash_ocen_dev" type="VIEW">
+      <column name="id_vpt" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="arm_sign" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_listotv" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_test" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gid_uchzav" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_testtype" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="liter_class" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_fam" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fam" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_init" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="init" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="kpo_id_season" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="s_variant" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="variant" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="i_answers1" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="i_answers2" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers1" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers2" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_edit" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="edit_result" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="is_iden" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="itog_ocen" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="is_ocen" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="date_time_scan" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="blank" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lang" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="lo_file_name" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="vw_listotv_9" schema="public" catalog="gash_ocen_dev" type="VIEW">
+      <column name="id_vpt" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="arm_sign" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_listotv" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_test" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gid_uchzav" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_testtype" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="liter_class" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_fam" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fam" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_init" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="init" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="kpo_id_season" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="s_variant" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="variant" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="id_predmet3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="i_answers1" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="i_answers2" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="i_answers3" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers1" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers2" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_answers3" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_edit" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="edit_result" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="is_iden" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ball3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="itog_ocen" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen1" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen2" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ocen3" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="is_ocen" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="date_time_scan" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="blank" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lang" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="lo_file_name" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="vw_tests" schema="public" catalog="gash_ocen_dev" type="VIEW">
+      <column name="id_vpt" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="arm_sign" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_test" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="scan_date" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gid_uchzav" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_testtype" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+    </table>
+    <table name="vw_uchzav" schema="public" catalog="gash_ocen_dev" type="VIEW">
+      <column name="id_vpt" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="gid_uchzav" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="uchzav_kaz" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uchzav_rus" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+  </data-source>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2119858053">
+    <data-source source="LOCAL" name="PostgreSQL - gash_ocen_dev@192.168.57.129" uuid="e8807bd4-9772-4896-871f-5824ffe231ff">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://192.168.57.129:5432/gash_ocen_dev</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

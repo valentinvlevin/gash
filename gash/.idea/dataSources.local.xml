@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - gash_ocen_dev@192.168.57.129" uuid="e8807bd4-9772-4896-871f-5824ffe231ff">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>gash_ocen_dev.public</schema-pattern>
+    </data-source>
+  </component>
+</project>

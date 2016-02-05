@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gash_ocen">
+    <output-path>$PROJECT_DIR$/out/artifacts/gash_ocen</output-path>
+    <root id="archive" name="gash_ocen.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="gash" />
+          <element id="jpa-descriptors" facet="gash/jpa/JPA" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="gash/web/Web" />
+    </root>
+  </artifact>
+</component>
