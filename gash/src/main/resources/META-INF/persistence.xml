@@ -21,10 +21,6 @@
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
    <persistence-unit name="gash_ocen">
-      <!-- If you are running in a production environment, add a managed 
-         data source, this example data source is just for development and testing! -->
-      <!-- The datasource is deployed as WEB-INF/gash-ds.xml, you
-         can find it in the source at src/main/webapp/WEB-INF/gash-ds.xml -->
       <jta-data-source>java:jboss/datasources/gash_ocen</jta-data-source>
        <class>kz.testcenter.gash.db.entities.enListOtv</class>
        <class>kz.testcenter.gash.db.entities.enAnswerFile</class>

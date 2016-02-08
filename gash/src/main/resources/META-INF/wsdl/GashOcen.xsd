@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices.gash.testcenter.kz/" targetNamespace="http://webservices.gash.testcenter.kz/" version="1.0">
+
+    <xs:element name="DoAnalyze" type="tns:DoAnalyze"/>
+    <xs:element name="DoAnalyzeResponse" type="tns:DoAnalyzeResponse"/>
+
+    <xs:element name="isAlive" type="tns:isAlive"/>
+    <xs:element name="isAliveResponse" type="tns:isAliveResponse"/>
+
+    <xs:complexType name="isAlive">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="isAliveResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DoAnalyze">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AnswerFile" type="tns:dtAnswerFile"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dtAnswerFile">
+        <xs:sequence>
+            <xs:element name="id_vpt" type="xs:short"/>
+            <xs:element name="arm_sign" type="xs:int"/>
+            <xs:element name="file_num" type="xs:short"/>
+            <xs:element minOccurs="0" name="create_date_time" type="xs:dateTime"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="tests" type="tns:dtTest"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="schools" type="tns:dtSchool"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="listotv" type="tns:dtListOtv"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dtTest">
+        <xs:sequence>
+            <xs:element name="id_test" type="xs:int"/>
+            <xs:element name="gid_uchzav" type="xs:int"/>
+            <xs:element name="scan_date" type="xs:int"/>
+            <xs:element name="id_test_type" type="xs:short"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dtSchool">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="school_kaz" type="xs:string"/>
+            <xs:element name="school_rus" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dtListOtv">
+        <xs:sequence>
+            <xs:element name="class_no" type="xs:short"/>
+            <xs:element name="id_test" type="xs:int"/>
+            <xs:element name="id_listotv" type="xs:int"/>
+            <xs:element name="liter_class" type="xs:string"/>
+            <xs:element name="s_fam" type="xs:string"/>
+            <xs:element name="fam" type="xs:string"/>
+            <xs:element name="s_init" type="xs:string"/>
+            <xs:element name="init" type="xs:string"/>
+            <xs:element name="kpo_id_season" type="xs:byte"/>
+            <xs:element name="s_variant" type="xs:string"/>
+            <xs:element name="variant" type="xs:short"/>
+            <xs:element name="id_predmets" type="xs:base64Binary"/>
+            <xs:element name="ords" type="xs:base64Binary"/>
+            <xs:element maxOccurs="unbounded" name="answers" type="xs:string"/>
+            <xs:element name="is_iden" type="xs:byte"/>
+            <xs:element name="is_edit" type="xs:byte"/>
+            <xs:element name="edit_result" type="xs:byte"/>
+            <xs:element name="lang" type="xs:byte"/>
+            <xs:element name="blank" type="xs:string"/>
+            <xs:element name="lo_filename" type="xs:string"/>
+            <xs:element name="date_time_scan" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DoAnalyzeResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:OcenResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="OcenResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="error_message" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ocen_list" type="tns:dtOcen"/>
+            <xs:element name="result_code" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dtOcen">
+        <xs:sequence>
+            <xs:element name="class_no" type="xs:byte"/>
+            <xs:element name="id_listotv" type="xs:int"/>
+            <xs:element name="itog_ocen" type="xs:byte"/>
+            <xs:element name="balls" type="xs:base64Binary"/>
+            <xs:element name="ocen" type="xs:base64Binary"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

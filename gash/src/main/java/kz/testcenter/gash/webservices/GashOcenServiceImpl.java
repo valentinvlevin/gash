@@ -2,7 +2,6 @@ package kz.testcenter.gash.webservices;
 
 import kz.testcenter.gash.db.dao.ListOtvDAO;
 import kz.testcenter.gash.exceptions.DAOException;
-import kz.testcenter.gash.exceptions.DAONotFoundException;
 import kz.testcenter.gash.webservices.datatype.OcenRequest;
 import kz.testcenter.gash.webservices.datatype.OcenResponse;
 import kz.testcenter.gash.webservices.datatype.dtOcen;
@@ -13,21 +12,24 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import java.util.List;
 
-/**
- * Created by user on 14.09.2015.
- */
+import org.apache.cxf.annotations.EndpointProperties;
+import org.apache.cxf.annotations.EndpointProperty;
+import org.jboss.ws.api.annotation.EndpointConfig;
+
 @WebService(
+        endpointInterface = "kz.testcenter.gash.webservices.GashOcenService",
         serviceName = "GashOcenService",
-        portName = "GashOcenPort",
-        wsdlLocation = "https://res.testcenter.kz:28443/gash_ocen/GashOcen?wsdl"
+        portName = "GashOcenPort"
 )
-@EndpointProperties()
-public class GashOcen {
+@EndpointProperties(value = {
+        @EndpointProperty(key = "ws-security.callback-handler", value = "kz.testcenter.gash.webservices.ServerPasswordCallback")
+}
+)public class GashOcenServiceImpl {
     @Inject
     private ListOtvDAO listOtvDAO;
 
     @WebMethod(operationName = "isAlive")
-    public boolean isAlive(){
+    public Boolean isAlive(){
         return true;
     }
 
@@ -38,9 +40,6 @@ public class GashOcen {
             List<dtOcen> ocenList = listOtvDAO.DoOcen(ocenRequest);
             ocenResponse.setResultCode(0);
             ocenResponse.setOcenList(ocenList);
-        } catch (DAONotFoundException e) {
-            ocenResponse.setResultCode(e.getExceptionMessage().getCode());
-            ocenResponse.setErrorMessage(e.getExceptionMessage().getErrorMessage());
         } catch (DAOException e) {
             ocenResponse.setResultCode(e.getExceptionMessage().getCode());
             ocenResponse.setErrorMessage(e.getExceptionMessage().getErrorMessage());
