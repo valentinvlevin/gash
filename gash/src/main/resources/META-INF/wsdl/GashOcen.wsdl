@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservices.gash.testcenter.kz/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="GashOcenService" targetNamespace="http://webservices.gash.testcenter.kz/"-->
+
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:tns="http://webservices.gash.testcenter.kz/"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
                   name="GashOcenService"
                   targetNamespace="http://webservices.gash.testcenter.kz/">
+
     <wsdl:types>
         <xsd:schema>
             <xsd:import namespace="http://webservices.gash.testcenter.kz/" schemaLocation="GashOcen.xsd"/>
         </xsd:schema>
     </wsdl:types>
 
+    <wsdl:message name="doAnalyzeResponse">
+        <wsdl:part element="tns:doAnalyzeResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
     <wsdl:message name="isAliveResponse">
-        <wsdl:part element="tns:isAliveResponse" name="parameters"/>
+        <wsdl:part element="tns:isAliveResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="doAnalyze">
+        <wsdl:part element="tns:doAnalyze" name="parameters"></wsdl:part>
     </wsdl:message>
     <wsdl:message name="isAlive">
-        <wsdl:part element="tns:isAlive" name="parameters"/>
+        <wsdl:part element="tns:isAlive" name="parameters"></wsdl:part>
     </wsdl:message>
-    <wsdl:message name="DoAnalyze">
-        <wsdl:part element="tns:DoAnalyze" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="DoAnalyzeResponse">
-        <wsdl:part element="tns:DoAnalyzeResponse" name="parameters"/>
-    </wsdl:message>
-
-    <wsdl:portType name="GashOcenServiceImpl">
-        <wsdl:operation name="isAlive">
-            <wsdl:input message="tns:isAlive" name="isAlive"/>
-            <wsdl:output message="tns:isAliveResponse" name="isAliveResponse"/>
+    <wsdl:portType name="GashOcenService">
+        <wsdl:operation name="doAnalyze">
+            <wsdl:input message="tns:doAnalyze" name="doAnalyze"></wsdl:input>
+            <wsdl:output message="tns:doAnalyzeResponse" name="doAnalyzeResponse"></wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="DoAnalyze">
-            <wsdl:input message="tns:DoAnalyze" name="DoAnalyze"/>
-            <wsdl:output message="tns:DoAnalyzeResponse" name="DoAnalyzeResponse"/>
+        <wsdl:operation name="isAlive">
+            <wsdl:input message="tns:isAlive" name="isAlive"></wsdl:input>
+            <wsdl:output message="tns:isAliveResponse" name="isAliveResponse"></wsdl:output>
         </wsdl:operation>
     </wsdl:portType>
-
-    <wsdl:binding name="GashOcenServiceSoapBinding" type="tns:GashOcenServiceImpl">
+    <wsdl:binding name="GashOcenServiceServiceSoapBinding" type="tns:GashOcenService">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-
+        <wsdl:operation name="doAnalyze">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="doAnalyze">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="doAnalyzeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="isAlive">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input name="isAlive">
@@ -48,21 +56,11 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-
-        <wsdl:operation name="DoAnalyze">
-            <soap:operation soapAction="" style="document"/>
-            <wsdl:input name="DoAnalyze">
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output name="DoAnalyzeResponse">
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
     </wsdl:binding>
-
-    <wsdl:service name="GashOcenService">
-        <wsdl:port binding="tns:GashOcenServiceSoapBinding" name="GashOcenPort">
-            <soap:address location="http://localhost:18080/gash_ocen/GashOcen"/>
+    <wsdl:service name="GashOcenServiceService">
+        <wsdl:port binding="tns:GashOcenServiceServiceSoapBinding" name="GashOcenServicePort">
+            <soap:address location="https://localhost:18443/gash/services/GashOcenService"/>
         </wsdl:port>
     </wsdl:service>
+
 </wsdl:definitions>

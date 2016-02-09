@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, Mask, rxToolEdit, ExtCtrls, Buttons, unDM, DB, Types,
   uADStanIntf, uADStanOption, uADStanParam, uADStanError, uADDatSManager,
   uADPhysIntf, uADDAptIntf, uADStanAsync, uADDAptManager, uADCompDataSet,
-  uADCompClient, unPath, InvokeRegistry, Rio, SOAPHTTPClient;
+  uADCompClient, unPath, InvokeRegistry, Rio, SOAPHTTPClient, SOAPHTTPTrans;
 
 type
   TOcenFileHeader = packed record
@@ -34,6 +34,7 @@ type
     lblInfo: TLabel;
     stInfo: TStaticText;
     HTTPRIO: THTTPRIO;
+    HTTPReqResp: THTTPReqResp;
     procedure btnImportClick(Sender: TObject);
     procedure edFilePathAfterDialog(Sender: TObject; var Name: string;
       var Action: Boolean);
@@ -54,7 +55,7 @@ type
 
 implementation
 
-uses unPack, unSQLiteDSUtils_FD, GashOcenService, XSBuiltIns, unProxyParams;
+uses unPack, unSQLiteDSUtils_FD, unGashOcenService, XSBuiltIns, unProxyParams;
 
 function ImportFileWithBall: Boolean;
 var
@@ -471,7 +472,7 @@ end;
 
 function OnlineAnalyze: Integer;
 var
-  serv: GashOcen;
+  serv: GashOcenService;
   ansFile: dtAnswerFile;
   tests: Array_Of_dtTest;
   schools: Array_Of_dtSchool;
@@ -499,11 +500,11 @@ var
       while not tmpDS.Eof do
       begin
         if ProxyHost<>'' then
-          f.HTTPRIO.HTTPWebNode.Proxy := ProxyHost+':'+IntToStr(ProxyPort);
+          f.HTTPReqResp.Proxy := ProxyHost+':'+IntToStr(ProxyPort);
         f.httprio.Service := 'GashOcenService';
         f.httprio.Port := 'GashOcenPort';
 
-        serv := GetGashOcen(False, tmpDS.FieldByName('link').AsString, f.httprio);
+        serv := GetGashOcenService(False, tmpDS.FieldByName('link').AsString, f.httprio);
 
         try
           if serv.isAlive then
@@ -534,7 +535,7 @@ begin
       Exit;
     end;
 
-    GetProxyServerParams('https', ProxyHost, ProxyPort);
+    GetProxyServerParams('http', ProxyHost, ProxyPort);
     if not FindAliveService then
       Exit;
 

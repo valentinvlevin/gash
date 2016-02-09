@@ -7,7 +7,7 @@ uses
   unProxyParams in 'Ocen\unProxyParams.pas',
   unfrmMain in 'unfrmMain.pas' {frmMain},
   unfrmExportImport in 'Ocen\unfrmExportImport.pas' {frmExportImport},
-  GashOcenService in 'Ocen\GashOcenService.pas';
+  unGashOcenService in 'Ocen\unGashOcenService.pas';
 
 {$R *.res}
 

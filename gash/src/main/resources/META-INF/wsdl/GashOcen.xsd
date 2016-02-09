@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices.gash.testcenter.kz/" targetNamespace="http://webservices.gash.testcenter.kz/" version="1.0">
 
-    <xs:element name="DoAnalyze" type="tns:DoAnalyze"/>
-    <xs:element name="DoAnalyzeResponse" type="tns:DoAnalyzeResponse"/>
+    <xs:element name="doAnalyze" type="tns:doAnalyze"/>
+    <xs:element name="doAnalyzeResponse" type="tns:doAnalyzeResponse"/>
 
     <xs:element name="isAlive" type="tns:isAlive"/>
     <xs:element name="isAliveResponse" type="tns:isAliveResponse"/>
@@ -16,7 +16,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="DoAnalyze">
+    <xs:complexType name="doAnalyze">
         <xs:sequence>
             <xs:element minOccurs="0" name="AnswerFile" type="tns:dtAnswerFile"/>
         </xs:sequence>
@@ -72,7 +72,7 @@
             <xs:element name="date_time_scan" type="xs:dateTime"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="DoAnalyzeResponse">
+    <xs:complexType name="doAnalyzeResponse">
         <xs:sequence>
             <xs:element minOccurs="0" name="return" type="tns:OcenResponse"/>
         </xs:sequence>

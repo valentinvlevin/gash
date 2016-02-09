@@ -1,14 +1,15 @@
 // ************************************************************************ //
 // The types declared in this file were generated from data read from the
 // WSDL File described below:
-// WSDL     : https://res.testcenter.kz:28443/gash_ocen/GashOcen?wsdl
-//  >Import : https://res.testcenter.kz:28443/gash_ocen/GashOcen?wsdl>0
+// WSDL     : https://localhost:18443/gash/services/GashOcenService?wsdl
+//  >Import : https://localhost:18443/gash/services/GashOcenService?wsdl>0
+//  >Import : https://localhost:18443/gash/services/GashOcenService?xsd=GashOcen.xsd
 // Encoding : UTF-8
 // Version  : 1.0
-// (05.02.2016 12:29:43 - - $Rev: 34800 $)
+// (09.02.2016 20:04:26 - - $Rev: 34800 $)
 // ************************************************************************ //
 
-unit GashOcenService;
+unit unGashOcenService;
 
 interface
 
@@ -231,29 +232,29 @@ type
   // transport : http://schemas.xmlsoap.org/soap/http
   // style     : document
   // use       : literal
-  // binding   : GashOcenServiceSoapBinding
-  // service   : GashOcenService
-  // port      : GashOcenPort
-  // URL       : http://res.testcenter.kz:28080/gash_ocen/GashOcen
+  // binding   : GashOcenServiceServiceSoapBinding
+  // service   : GashOcenServiceService
+  // port      : GashOcenServicePort
+  // URL       : https://localhost:18443/gash/services/GashOcenService
   // ************************************************************************ //
-  GashOcen = interface(IInvokable)
-  ['{87764F18-1A76-D3FB-E6CC-10559080C23A}']
+  GashOcenService = interface(IInvokable)
+  ['{89F5063B-C86D-E227-EBF9-D7B98EDD6546}']
+    function  doAnalyze(const AnswerFile: dtAnswerFile): OcenResponse; stdcall;
     function  isAlive: Boolean; stdcall;
-    function  DoAnalyze(const AnswerFile: dtAnswerFile): OcenResponse; stdcall;
   end;
 
-function GetGashOcen(UseWSDL: Boolean=System.False; Addr: string=''; HTTPRIO: THTTPRIO = nil): GashOcen;
+function GetGashOcenService(UseWSDL: Boolean=System.False; Addr: string=''; HTTPRIO: THTTPRIO = nil): GashOcenService;
 
 
 implementation
   uses SysUtils;
 
-function GetGashOcen(UseWSDL: Boolean; Addr: string; HTTPRIO: THTTPRIO): GashOcen;
+function GetGashOcenService(UseWSDL: Boolean; Addr: string; HTTPRIO: THTTPRIO): GashOcenService;
 const
-  defWSDL = 'https://res.testcenter.kz:28443/gash_ocen/GashOcen?wsdl';
-  defURL  = 'https://res.testcenter.kz:28443/gash_ocen/GashOcen';
-  defSvc  = 'GashOcenService';
-  defPrt  = 'GashOcenPort';
+  defWSDL = 'https://localhost:18443/gash/services/GashOcenService?wsdl';
+  defURL  = 'https://localhost:18443/gash/services/GashOcenService';
+  defSvc  = 'GashOcenServiceService';
+  defPrt  = 'GashOcenServicePort';
 var
   RIO: THTTPRIO;
 begin
@@ -270,7 +271,7 @@ begin
   else
     RIO := HTTPRIO;
   try
-    Result := (RIO as GashOcen);
+    Result := (RIO as GashOcenService);
     if UseWSDL then
     begin
       RIO.WSDLLocation := Addr;
@@ -385,21 +386,21 @@ begin
 end;
 
 initialization
-  { GashOcen }
-  InvRegistry.RegisterInterface(TypeInfo(GashOcen), 'http://webservices.gash.testcenter.kz/', 'UTF-8');
-  InvRegistry.RegisterDefaultSOAPAction(TypeInfo(GashOcen), '');
-  InvRegistry.RegisterInvokeOptions(TypeInfo(GashOcen), ioDocument);
-  { GashOcen.isAlive }
-  InvRegistry.RegisterMethodInfo(TypeInfo(GashOcen), 'isAlive', '',
-                                 '[ReturnName="return"]', IS_UNQL);
-  InvRegistry.RegisterParamInfo(TypeInfo(GashOcen), 'isAlive', 'return', '',
-                                '', IS_UNQL);
-  { GashOcen.DoAnalyze }
-  InvRegistry.RegisterMethodInfo(TypeInfo(GashOcen), 'DoAnalyze', '',
+  { GashOcenService }
+  InvRegistry.RegisterInterface(TypeInfo(GashOcenService), 'http://webservices.gash.testcenter.kz/', 'UTF-8');
+  InvRegistry.RegisterDefaultSOAPAction(TypeInfo(GashOcenService), '');
+  InvRegistry.RegisterInvokeOptions(TypeInfo(GashOcenService), ioDocument);
+  { GashOcenService.doAnalyze }
+  InvRegistry.RegisterMethodInfo(TypeInfo(GashOcenService), 'doAnalyze', '',
                                  '[ReturnName="return"]', IS_OPTN or IS_UNQL);
-  InvRegistry.RegisterParamInfo(TypeInfo(GashOcen), 'DoAnalyze', 'AnswerFile', '',
+  InvRegistry.RegisterParamInfo(TypeInfo(GashOcenService), 'doAnalyze', 'AnswerFile', '',
                                 '', IS_UNQL);
-  InvRegistry.RegisterParamInfo(TypeInfo(GashOcen), 'DoAnalyze', 'return', '',
+  InvRegistry.RegisterParamInfo(TypeInfo(GashOcenService), 'doAnalyze', 'return', '',
+                                '', IS_UNQL);
+  { GashOcenService.isAlive }
+  InvRegistry.RegisterMethodInfo(TypeInfo(GashOcenService), 'isAlive', '',
+                                 '[ReturnName="return"]', IS_UNQL);
+  InvRegistry.RegisterParamInfo(TypeInfo(GashOcenService), 'isAlive', 'return', '',
                                 '', IS_UNQL);
   RemClassRegistry.RegisterXSInfo(TypeInfo(Array_Of_dtOcen), 'http://webservices.gash.testcenter.kz/', 'Array_Of_dtOcen');
   RemClassRegistry.RegisterXSInfo(TypeInfo(Array_Of_dtListOtv), 'http://webservices.gash.testcenter.kz/', 'Array_Of_dtListOtv');

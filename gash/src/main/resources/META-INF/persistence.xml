@@ -29,7 +29,7 @@
        <class>kz.testcenter.gash.db.entities.kpo.enKPO</class>
       <properties>
          <property name="hibernate.hbm2ddl.auto" value="validate" />
-         <property name="hibernate.show_sql" value="false" />
+         <property name="hibernate.show_sql" value="true" />
       </properties>
    </persistence-unit>
 </persistence>

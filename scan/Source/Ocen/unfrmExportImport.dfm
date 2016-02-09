@@ -203,13 +203,17 @@ object frmExportImport: TfrmExportImport
     Left = 248
   end
   object HTTPRIO: THTTPRIO
-    WSDLLocation = 'http://eduserver.dyndns.info:8080/gash_ocen/GashOcen?wsdl'
-    Service = 'GashOcenService'
-    Port = 'GashOcenPort'
-    HTTPWebNode.UseUTF8InHeader = True
-    HTTPWebNode.InvokeOptions = [soIgnoreInvalidCerts, soAutoCheckAccessPointViaUDDI]
-    HTTPWebNode.WebNodeOptions = []
+    HTTPWebNode = HTTPReqResp
     Converter.Options = [soSendMultiRefObj, soTryAllSchema, soRootRefNodesToBody, soCacheMimeResponse, soUTF8EncodeXML]
     Left = 176
+  end
+  object HTTPReqResp: THTTPReqResp
+    UserName = '701'
+    Password = 'password'
+    UseUTF8InHeader = True
+    InvokeOptions = [soIgnoreInvalidCerts, soAutoCheckAccessPointViaUDDI]
+    WebNodeOptions = []
+    Left = 176
+    Top = 72
   end
 end
